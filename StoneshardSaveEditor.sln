@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoneshardSaveEditor", "StoneshardSaveEditor\StoneshardSaveEditor.csproj", "{0342454D-28EA-4745-B9D4-0D8422C754CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0342454D-28EA-4745-B9D4-0D8422C754CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0342454D-28EA-4745-B9D4-0D8422C754CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0342454D-28EA-4745-B9D4-0D8422C754CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0342454D-28EA-4745-B9D4-0D8422C754CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
