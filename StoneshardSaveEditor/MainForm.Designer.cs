@@ -37,6 +37,10 @@
             this.dataFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.charDataGroupBox = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.characterDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label12 = new System.Windows.Forms.Label();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
@@ -47,8 +51,8 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.removeAbilityButton = new System.Windows.Forms.Button();
+            this.abilityListBox = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,10 +62,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.charDataGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.characterDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
@@ -72,7 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // readAllSavesButton
@@ -122,9 +124,13 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(223, 328);
             this.treeView1.TabIndex = 6;
+            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
             // charDataGroupBox
             // 
+            this.charDataGroupBox.Controls.Add(this.textBox2);
+            this.charDataGroupBox.Controls.Add(this.textBox1);
+            this.charDataGroupBox.Controls.Add(this.label12);
             this.charDataGroupBox.Controls.Add(this.numericUpDown9);
             this.charDataGroupBox.Controls.Add(this.numericUpDown8);
             this.charDataGroupBox.Controls.Add(this.numericUpDown7);
@@ -144,7 +150,6 @@
             this.charDataGroupBox.Controls.Add(this.label5);
             this.charDataGroupBox.Controls.Add(this.label4);
             this.charDataGroupBox.Controls.Add(this.label3);
-            this.charDataGroupBox.Controls.Add(this.textBox1);
             this.charDataGroupBox.Controls.Add(this.label2);
             this.charDataGroupBox.Enabled = false;
             this.charDataGroupBox.Location = new System.Drawing.Point(241, 32);
@@ -154,73 +159,131 @@
             this.charDataGroupBox.TabStop = false;
             this.charDataGroupBox.Text = "Character Data";
             // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(104, 45);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(76, 20);
+            this.textBox2.TabIndex = 39;
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.characterDataBindingSource, "Name", true));
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(104, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.TabIndex = 38;
+            // 
+            // characterDataBindingSource
+            // 
+            this.characterDataBindingSource.DataSource = typeof(StoneshardSaveEditor.CharacterData);
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(6, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 19);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Game Time";
+            // 
             // numericUpDown9
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(104, 246);
+            this.numericUpDown9.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "XP", true));
+            this.numericUpDown9.Location = new System.Drawing.Point(104, 279);
+            this.numericUpDown9.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown9.TabIndex = 36;
             // 
             // numericUpDown8
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(104, 220);
+            this.numericUpDown8.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Level", true));
+            this.numericUpDown8.Location = new System.Drawing.Point(104, 253);
+            this.numericUpDown8.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown8.TabIndex = 35;
+            this.numericUpDown8.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(104, 194);
+            this.numericUpDown7.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "StatsPoints", true));
+            this.numericUpDown7.Location = new System.Drawing.Point(104, 227);
+            this.numericUpDown7.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown7.TabIndex = 34;
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(104, 168);
+            this.numericUpDown6.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "AbilityPoints", true));
+            this.numericUpDown6.Location = new System.Drawing.Point(104, 201);
+            this.numericUpDown6.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown6.TabIndex = 33;
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(104, 142);
+            this.numericUpDown5.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Willpower", true));
+            this.numericUpDown5.Location = new System.Drawing.Point(104, 175);
+            this.numericUpDown5.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numericUpDown5.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown5.TabIndex = 32;
+            this.numericUpDown5.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(104, 116);
+            this.numericUpDown4.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Vitality", true));
+            this.numericUpDown4.Location = new System.Drawing.Point(104, 149);
+            this.numericUpDown4.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numericUpDown4.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown4.TabIndex = 31;
+            this.numericUpDown4.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(104, 90);
+            this.numericUpDown3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Perception", true));
+            this.numericUpDown3.Location = new System.Drawing.Point(104, 123);
+            this.numericUpDown3.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numericUpDown3.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown3.TabIndex = 30;
+            this.numericUpDown3.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(104, 64);
+            this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Agility", true));
+            this.numericUpDown2.Location = new System.Drawing.Point(104, 97);
+            this.numericUpDown2.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numericUpDown2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown2.TabIndex = 29;
+            this.numericUpDown2.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(104, 38);
+            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Strength", true));
+            this.numericUpDown1.Location = new System.Drawing.Point(104, 71);
+            this.numericUpDown1.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            this.numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown1.TabIndex = 28;
+            this.numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.removeAbilityButton);
+            this.groupBox1.Controls.Add(this.abilityListBox);
             this.groupBox1.Location = new System.Drawing.Point(186, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(192, 254);
@@ -228,26 +291,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Abilities";
             // 
-            // button1
+            // removeAbilityButton
             // 
-            this.button1.Location = new System.Drawing.Point(100, 224);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Remove Ability";
-            this.button1.UseVisualStyleBackColor = true;
+            this.removeAbilityButton.Enabled = false;
+            this.removeAbilityButton.Location = new System.Drawing.Point(100, 224);
+            this.removeAbilityButton.Name = "removeAbilityButton";
+            this.removeAbilityButton.Size = new System.Drawing.Size(86, 23);
+            this.removeAbilityButton.TabIndex = 1;
+            this.removeAbilityButton.Text = "Remove Ability";
+            this.removeAbilityButton.UseVisualStyleBackColor = true;
+            this.removeAbilityButton.Click += new System.EventHandler(this.removeAbilityButton_Click);
             // 
-            // listBox1
+            // abilityListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(186, 199);
-            this.listBox1.TabIndex = 0;
+            this.abilityListBox.FormattingEnabled = true;
+            this.abilityListBox.Location = new System.Drawing.Point(6, 19);
+            this.abilityListBox.Name = "abilityListBox";
+            this.abilityListBox.Size = new System.Drawing.Size(186, 199);
+            this.abilityListBox.TabIndex = 0;
+            this.abilityListBox.SelectedValueChanged += new System.EventHandler(this.abilityListBox_SelectedValueChanged);
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(6, 248);
+            this.label11.Location = new System.Drawing.Point(6, 281);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(70, 19);
             this.label11.TabIndex = 25;
@@ -255,7 +321,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(6, 222);
+            this.label10.Location = new System.Drawing.Point(6, 255);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 19);
             this.label10.TabIndex = 23;
@@ -263,7 +329,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(6, 196);
+            this.label9.Location = new System.Drawing.Point(6, 229);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 19);
             this.label9.TabIndex = 21;
@@ -271,7 +337,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(6, 170);
+            this.label8.Location = new System.Drawing.Point(6, 203);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 19);
             this.label8.TabIndex = 19;
@@ -279,7 +345,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(6, 144);
+            this.label7.Location = new System.Drawing.Point(6, 177);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 19);
             this.label7.TabIndex = 17;
@@ -287,7 +353,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(6, 118);
+            this.label6.Location = new System.Drawing.Point(6, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 19);
             this.label6.TabIndex = 15;
@@ -295,7 +361,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(6, 92);
+            this.label5.Location = new System.Drawing.Point(6, 125);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 19);
             this.label5.TabIndex = 13;
@@ -303,7 +369,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(6, 66);
+            this.label4.Location = new System.Drawing.Point(6, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 19);
             this.label4.TabIndex = 11;
@@ -311,23 +377,15 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 40);
+            this.label3.Location = new System.Drawing.Point(6, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Strength";
             // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(104, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 8;
-            // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Location = new System.Drawing.Point(6, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 19);
             this.label2.TabIndex = 7;
@@ -348,6 +406,7 @@
             this.Text = "StoneShard Save Editor v1 (Tested with Stoneshard 0.8.0.6)";
             this.charDataGroupBox.ResumeLayout(false);
             this.charDataGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.characterDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
@@ -358,12 +417,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+
+        private System.Windows.Forms.Label label12;
 
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
@@ -375,11 +436,11 @@
         private System.Windows.Forms.NumericUpDown numericUpDown8;
         private System.Windows.Forms.NumericUpDown numericUpDown9;
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button removeAbilityButton;
 
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox abilityListBox;
 
         private System.Windows.Forms.Label label10;
 
@@ -387,7 +448,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
 
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
 
@@ -409,6 +469,8 @@
 
         private System.Windows.Forms.Button readAllSavesButton;
 
-        #endregion
+		#endregion
+
+		private System.Windows.Forms.BindingSource characterDataBindingSource;
     }
 }

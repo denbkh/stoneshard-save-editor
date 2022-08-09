@@ -20,12 +20,7 @@ namespace StoneshardSaveEditor
                         using (JsonTextReader reader = new JsonTextReader(sr))
                         {
                             return JObject.Load(reader);
-
                         }
-                        // var decodedData = sr.ReadToEnd();
-                        // var jsonEnd = decodedData.LastIndexOf('}');
-                        // var jsonString = decodedData.Substring(0, jsonEnd + 1);
-                        // return JsonDocument.Parse(jsonString);
                     }
                 }
             }
