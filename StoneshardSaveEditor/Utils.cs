@@ -1,6 +1,6 @@
 using System.IO;
-using System.IO.Compression;
 using System.Text;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -12,13 +12,13 @@ namespace StoneshardSaveEditor
         {
             using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
-                fs.Seek(2, SeekOrigin.Begin); //zlib header
-                using (DeflateStream deflateStream = new DeflateStream(fs, CompressionMode.Decompress))
+                using (var inputStream = new InflaterInputStream(fs))
                 {
-                    using (StreamReader sr = new StreamReader(deflateStream, Encoding.UTF8))
+                    using (StreamReader sr = new StreamReader(inputStream, Encoding.UTF8))
                     {
                         using (JsonTextReader reader = new JsonTextReader(sr))
                         {
+                            reader.FloatParseHandling = FloatParseHandling.Decimal;
                             return JObject.Load(reader);
                         }
                     }

@@ -9,16 +9,18 @@ namespace StoneshardSaveEditor
 {
     public partial class MainForm : Form
     {
-        private CharacterData _characterData;
+        private SaveEditor _saveEditor;
+
         public MainForm()
         {
             InitializeComponent();
-            saveFolderTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\StoneShard";
+            saveFolderTextBox.Text = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "StoneShard");
         }
 
         private void readAllSavesButton_Click(object sender, EventArgs e)
         {
-            var charactersFolder = saveFolderTextBox.Text + @"\characters_v1";
+            var charactersFolder = Path.Combine(saveFolderTextBox.Text, "characters_v1");
             if (Directory.Exists(charactersFolder))
             {
                 BuildTree(charactersFolder);
@@ -58,14 +60,15 @@ namespace StoneshardSaveEditor
                     oneSaveNode.Tag = oneSaveDir;
                     parent.Nodes.Add(oneSaveNode);
                 }
-                
+
                 treeView1.Nodes.Add(parent);
             }
         }
 
         private void removeAbilityButton_Click(object sender, EventArgs e)
         {
-            _characterData.Abilities.RemoveAt(abilityListBox.SelectedIndex);
+            _saveEditor.Character.Abilities.RemoveAt(abilityListBox.SelectedIndex);
+            EnableSaveButton(sender, e);
         }
 
         private void abilityListBox_SelectedValueChanged(object sender, EventArgs e)
@@ -82,15 +85,26 @@ namespace StoneshardSaveEditor
             }
 
             var oneSaveDir = (string)e.Node.Tag;
-            SaveEditor saveEditor = new SaveEditor(Path.Combine(oneSaveDir, "data.sav"));
-            _characterData = saveEditor.ReadCharacter();
+            _saveEditor = new SaveEditor(Path.Combine(oneSaveDir, "data.sav"));
             charDataGroupBox.Enabled = true;
-            characterDataBindingSource.DataSource = _characterData;
-            abilityListBox.DataSource = _characterData.Abilities;
+            characterDataBindingSource.DataSource = _saveEditor.Character;
+            abilityListBox.DataSource = _saveEditor.Character.Abilities;
             abilityListBox.ClearSelected();
+            saveButton.Enabled = false;
         }
 
+        private void EnableSaveButton(object sender, EventArgs e)
+        {
+            saveButton.Enabled = true;
+        }
 
-
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            _saveEditor.Save();
+            MessageBox.Show("Save file updated" + Environment.NewLine + 
+                            Environment.NewLine + "Backup file: " + _saveEditor.BackupFilePath,
+                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            saveButton.Enabled = false;
+        }
     }
 }

@@ -37,9 +37,10 @@
             this.dataFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.charDataGroupBox = new System.Windows.Forms.GroupBox();
+            this.saveButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.characterDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
@@ -120,6 +121,7 @@
             // 
             // treeView1
             // 
+            this.treeView1.HideSelection = false;
             this.treeView1.Location = new System.Drawing.Point(12, 34);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(223, 328);
@@ -128,6 +130,7 @@
             // 
             // charDataGroupBox
             // 
+            this.charDataGroupBox.Controls.Add(this.saveButton);
             this.charDataGroupBox.Controls.Add(this.textBox2);
             this.charDataGroupBox.Controls.Add(this.textBox1);
             this.charDataGroupBox.Controls.Add(this.label12);
@@ -159,26 +162,37 @@
             this.charDataGroupBox.TabStop = false;
             this.charDataGroupBox.Text = "Character Data";
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(286, 298);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(92, 26);
+            this.saveButton.TabIndex = 40;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // textBox2
             // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.characterDataBindingSource, "GameTime", true));
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(104, 45);
+            this.textBox2.Location = new System.Drawing.Point(69, 45);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(76, 20);
+            this.textBox2.Size = new System.Drawing.Size(111, 20);
             this.textBox2.TabIndex = 39;
+            // 
+            // characterDataBindingSource
+            // 
+            this.characterDataBindingSource.DataSource = typeof(StoneshardSaveEditor.CharacterData);
             // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.characterDataBindingSource, "Name", true));
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(104, 19);
+            this.textBox1.Location = new System.Drawing.Point(69, 19);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.Size = new System.Drawing.Size(111, 20);
             this.textBox1.TabIndex = 38;
-            // 
-            // characterDataBindingSource
-            // 
-            this.characterDataBindingSource.DataSource = typeof(StoneshardSaveEditor.CharacterData);
             // 
             // label12
             // 
@@ -196,16 +210,17 @@
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown9.TabIndex = 36;
+            this.numericUpDown9.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown8
             // 
             this.numericUpDown8.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Level", true));
             this.numericUpDown8.Location = new System.Drawing.Point(104, 253);
-            this.numericUpDown8.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown8.TabIndex = 35;
             this.numericUpDown8.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDown8.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown7
             // 
@@ -215,6 +230,7 @@
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown7.TabIndex = 34;
+            this.numericUpDown7.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown6
             // 
@@ -224,61 +240,62 @@
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown6.TabIndex = 33;
+            this.numericUpDown6.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown5
             // 
             this.numericUpDown5.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Willpower", true));
             this.numericUpDown5.Location = new System.Drawing.Point(104, 175);
             this.numericUpDown5.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            this.numericUpDown5.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown5.TabIndex = 32;
             this.numericUpDown5.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDown5.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown4
             // 
             this.numericUpDown4.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Vitality", true));
             this.numericUpDown4.Location = new System.Drawing.Point(104, 149);
             this.numericUpDown4.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            this.numericUpDown4.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown4.TabIndex = 31;
             this.numericUpDown4.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDown4.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown3
             // 
             this.numericUpDown3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Perception", true));
             this.numericUpDown3.Location = new System.Drawing.Point(104, 123);
             this.numericUpDown3.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            this.numericUpDown3.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown3.TabIndex = 30;
             this.numericUpDown3.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDown3.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown2
             // 
             this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Agility", true));
             this.numericUpDown2.Location = new System.Drawing.Point(104, 97);
             this.numericUpDown2.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            this.numericUpDown2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown2.TabIndex = 29;
             this.numericUpDown2.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Strength", true));
             this.numericUpDown1.Location = new System.Drawing.Point(104, 71);
             this.numericUpDown1.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            this.numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(76, 20);
             this.numericUpDown1.TabIndex = 28;
             this.numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.EnableSaveButton);
             // 
             // groupBox1
             // 
@@ -286,7 +303,7 @@
             this.groupBox1.Controls.Add(this.abilityListBox);
             this.groupBox1.Location = new System.Drawing.Point(186, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(192, 254);
+            this.groupBox1.Size = new System.Drawing.Size(192, 279);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Abilities";
@@ -294,7 +311,7 @@
             // removeAbilityButton
             // 
             this.removeAbilityButton.Enabled = false;
-            this.removeAbilityButton.Location = new System.Drawing.Point(100, 224);
+            this.removeAbilityButton.Location = new System.Drawing.Point(100, 250);
             this.removeAbilityButton.Name = "removeAbilityButton";
             this.removeAbilityButton.Size = new System.Drawing.Size(86, 23);
             this.removeAbilityButton.TabIndex = 1;
@@ -307,7 +324,7 @@
             this.abilityListBox.FormattingEnabled = true;
             this.abilityListBox.Location = new System.Drawing.Point(6, 19);
             this.abilityListBox.Name = "abilityListBox";
-            this.abilityListBox.Size = new System.Drawing.Size(186, 199);
+            this.abilityListBox.Size = new System.Drawing.Size(180, 225);
             this.abilityListBox.TabIndex = 0;
             this.abilityListBox.SelectedValueChanged += new System.EventHandler(this.abilityListBox_SelectedValueChanged);
             // 
@@ -402,8 +419,9 @@
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.saveFolderTextBox);
             this.Controls.Add(this.readAllSavesButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
-            this.Text = "StoneShard Save Editor v1 (Tested with Stoneshard 0.8.0.6)";
+            this.Text = "StoneShard Save Editor v.1 (Tested with Stoneshard 0.8.0.10)";
             this.charDataGroupBox.ResumeLayout(false);
             this.charDataGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.characterDataBindingSource)).EndInit();
@@ -420,6 +438,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button saveButton;
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

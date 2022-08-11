@@ -1,5 +1,3 @@
-
-using System;
 using System.ComponentModel;
 
 namespace StoneshardSaveEditor
@@ -16,7 +14,7 @@ namespace StoneshardSaveEditor
         public int StatsPoints { get; set; }
         public int Level { get; set; }
         public int XP { get; set; }
-        public TimeSpan GameTime { get; set; }
+        public string GameTime { get; set; }
         public BindingList<string> Abilities { get; set; }
     }
 }
