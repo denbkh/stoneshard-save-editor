@@ -1,6 +1,6 @@
 # Stoneshard save editor
 
-Save file editor for [Stoneshard](https://store.steampowered.com/app/625960/Stoneshard/) game
+Save file editor for [Stoneshard](https://store.steampowered.com/app/625960/Stoneshard/) (respec your character)
 
 ## How to use
 
