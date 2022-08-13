@@ -421,7 +421,7 @@
             this.Controls.Add(this.readAllSavesButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
-            this.Text = "StoneShard Save Editor v.1 (Tested with Stoneshard 0.8.0.10)";
+            this.Text = "StoneShard Save Editor v.1 (Tested with Stoneshard 0.8.0.11)";
             this.charDataGroupBox.ResumeLayout(false);
             this.charDataGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.characterDataBindingSource)).EndInit();
