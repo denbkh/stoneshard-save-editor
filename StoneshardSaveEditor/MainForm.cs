@@ -45,7 +45,10 @@ namespace StoneshardSaveEditor
             treeView1.Nodes.Clear();
             foreach (var allSavesForOneCharDir in Directory.EnumerateDirectories(rootSavesFolder).Reverse())
             {
-                var charMapJson = Utils.ReadJson(Path.Combine(allSavesForOneCharDir, "character.map"));
+                var characterMapFilePath = Path.Combine(allSavesForOneCharDir, "character.map");
+                if(File.Exists(characterMapFilePath) == false) continue;
+                
+                var charMapJson = Utils.ReadJson(characterMapFilePath);
                 var charName = charMapJson.Value<string>("nameKey");
                 var parent = new TreeNode(Path.GetFileName(allSavesForOneCharDir) + " " + charName);
                 parent.ForeColor = Color.Gray;
