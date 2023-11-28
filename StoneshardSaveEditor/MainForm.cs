@@ -27,7 +27,7 @@ namespace StoneshardSaveEditor
             if (Directory.Exists(charactersFolder))
             {
                 BuildTree(charactersFolder);
-                treeView1.ExpandAll();
+                SaveTreeBiew.ExpandAll();
             }
             else
             {
@@ -45,7 +45,7 @@ namespace StoneshardSaveEditor
 
         private void BuildTree(string rootSavesFolder)
         {
-            treeView1.Nodes.Clear();
+            SaveTreeBiew.Nodes.Clear();
             foreach (var allSavesForOneCharDir in Directory.EnumerateDirectories(rootSavesFolder).Reverse())
             {
                 var characterMapFilePath = Path.Combine(allSavesForOneCharDir, "character.map");
@@ -67,7 +67,7 @@ namespace StoneshardSaveEditor
                         parent.Nodes.Add(oneSaveNode);
                 }
 
-                treeView1.Nodes.Add(parent);
+                SaveTreeBiew.Nodes.Add(parent);
             }
         }
 
@@ -111,6 +111,22 @@ namespace StoneshardSaveEditor
                             Environment.NewLine + "Backup file: " + _saveEditor.BackupFilePath,
             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             saveButton.Enabled = false;
+        }
+
+        private void Additional_Click(object sender, EventArgs e)
+        {
+            switch (Additional.Text)
+            {
+                case "\\/":
+                    this.Height += 100;
+                    this.Additional.Text = "/\\";
+                    this.additionalCharDataGroupBox.Enabled = true;
+                    break;
+                case "/\\":
+                    this.Height -= 100;
+                    this.additionalCharDataGroupBox.Enabled = false;
+                    break;
+            }
         }
     }
 }

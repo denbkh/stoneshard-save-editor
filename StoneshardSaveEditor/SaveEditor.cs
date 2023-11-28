@@ -36,13 +36,15 @@ namespace StoneshardSaveEditor
             Character.StatsPoints   = charDataMap.Value<int>("AP"); // strange
             Character.Level         = charDataMap.Value<int>("LVL");
             Character.XP            = charDataMap.Value<int>("XP");
-            Character.XPGain        = charDataMap.Value<int>("Recieved_XP");
-            Character.Sanity        = charDataMap.Value<decimal>("Sanity");
-            Character.Morale        = charDataMap.Value<decimal>("Morale");
-            Character.Intoxication  = charDataMap.Value<decimal>("Intoxication");
-            Character.Thirst        = charDataMap.Value<decimal>("Thirsty");
-            Character.Hunger        = charDataMap.Value<decimal>("Hunger");
-            Character.Immunity      = charDataMap.Value<decimal>("Immunity");
+            Character.HP            = charDataMap.Value<int>("HP");
+            Character.MP            = charDataMap.Value<int>("MP");
+            Character.XPGain        = charDataMap.Value<int>("Received_XP");
+            Character.Sanity        = charDataMap.Value<int>("Sanity");
+            Character.Morale        = charDataMap.Value<int>("Morale");
+            Character.Intoxication  = charDataMap.Value<int>("Intoxication");
+            Character.Thirst        = charDataMap.Value<int>("Thirsty");
+            Character.Hunger        = charDataMap.Value<int>("Hunger");
+            Character.Immunity      = charDataMap.Value<int>("Immunity");
             Character.Fatigue       = charDataMap.Value<int>("Fatigue");
             Character.Pain          = charDataMap.Value<int>("Pain");
 
@@ -69,16 +71,28 @@ namespace StoneshardSaveEditor
         {
             var charDataMap = _rootJsonObject["characterDataMap"]!;
 
-            charDataMap["STR"]      = (float)Character.Strength;
-            charDataMap["AGL"]      = (float)Character.Agility;
-            charDataMap["PRC"]      = (float)Character.Perception;
-            charDataMap["Vitality"] = (float)Character.Vitality;
-            charDataMap["WIL"]      = (float)Character.Willpower;
-            charDataMap["SP"]       = (float)Character.AbilityPoints; //strange
-            charDataMap["AP"]       = (float)Character.StatsPoints; //strange
-            charDataMap["WIL"]      = (float)Character.Willpower;
-            charDataMap["LVL"]      = (float)Character.Level;
-            charDataMap["XP"]       = (float)Character.XP;
+            charDataMap["STR"]          = (float)Character.Strength;
+            charDataMap["AGL"]          = (float)Character.Agility;
+            charDataMap["PRC"]          = (float)Character.Perception;
+            charDataMap["Vitality"]     = (float)Character.Vitality;
+            charDataMap["WIL"]          = (float)Character.Willpower;
+            charDataMap["SP"]           = (float)Character.AbilityPoints; //strange
+            charDataMap["AP"]           = (float)Character.StatsPoints; //strange
+            charDataMap["WIL"]          = (float)Character.Willpower;
+            charDataMap["LVL"]          = (float)Character.Level;
+            charDataMap["MP"]           = (float)Character.MP;
+            charDataMap["Hp"]           = (float)Character.HP;
+            charDataMap["XP"]           = (float)Character.XP;
+            charDataMap["Recieved_XP"]  = (float)Character.XPGain;
+            charDataMap["Sanity"]       = (float)Character.Sanity;
+            charDataMap["Morale"]       = (float)Character.Sanity;
+            charDataMap["Intoxication"] = (float)Character.Sanity;
+            charDataMap["Thirsty"]      = (float)Character.Sanity;
+            charDataMap["Hunger"]       = (float)Character.Sanity;
+            charDataMap["Immunity"]     = (float)Character.Sanity;
+            charDataMap["Fatigue"]      = (float)Character.Fatigue;
+            charDataMap["Pain"]         = (float)Character.Pain;
+
 
             JArray skillsArray = (JArray)_rootJsonObject["skillsDataMap"]!["skillsAllDataList"]!;
             for (int i = 0; i < skillsArray.Count; i += 5)

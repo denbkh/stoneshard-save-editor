@@ -17,12 +17,12 @@ namespace StoneshardSaveEditor
         public int XPGain { get; set; }
         public int HP {  get; set; }
         public int MP { get; set; }
-        public decimal Sanity {  get; set; }
-        public decimal Morale { get; set; }
-        public decimal Intoxication {  get; set; }
-        public decimal Thirst { get; set; }
-        public decimal Hunger { get; set; }
-        public decimal Immunity {  get; set; }
+        public int Sanity {  get; set; }
+        public int Morale { get; set; }
+        public int Intoxication {  get; set; }
+        public int Thirst { get; set; }
+        public int Hunger { get; set; }
+        public int Immunity {  get; set; }
         public int Fatigue {  get; set; }
         public int Pain {  get; set; }
         public string GameTime { get; set; }
