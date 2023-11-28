@@ -6,24 +6,24 @@ using Newtonsoft.Json.Linq;
 
 namespace StoneshardSaveEditor
 {
-  public static class Utils
-  {
-    public static JObject ReadJson(string file)
+    public static class Utils
     {
-      using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
-      {
-        using (var inputStream = new InflaterInputStream(fs))
+        public static JObject ReadJson(string file)
         {
-          using (StreamReader sr = new StreamReader(inputStream, Encoding.UTF8))
-          {
-            using (JsonTextReader reader = new JsonTextReader(sr))
+            using (FileStream fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
-              reader.FloatParseHandling = FloatParseHandling.Decimal;
-              return JObject.Load(reader);
+                using (InflaterInputStream inputStream = new InflaterInputStream(fileStream))
+                {
+                    using (StreamReader streamReader = new StreamReader(inputStream, Encoding.UTF8))
+                    {
+                        using (JsonTextReader reader = new JsonTextReader(streamReader))
+                        {
+                            reader.FloatParseHandling = FloatParseHandling.Decimal;
+                            return JObject.Load(reader);
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     }
-  }
 }
