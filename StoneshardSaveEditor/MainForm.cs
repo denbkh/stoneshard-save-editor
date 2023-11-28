@@ -115,17 +115,15 @@ namespace StoneshardSaveEditor
 
         private void Additional_Click(object sender, EventArgs e)
         {
-            switch (Additional.Text)
+            if (this.additionalCharDataGroupBox.Enabled == false)
             {
-                case "\\/":
-                    this.Height += 100;
-                    this.Additional.Text = "/\\";
-                    this.additionalCharDataGroupBox.Enabled = true;
-                    break;
-                case "/\\":
-                    this.Height -= 100;
-                    this.additionalCharDataGroupBox.Enabled = false;
-                    break;
+                this.Height += 100;
+                this.additionalCharDataGroupBox.Enabled = true;
+            }
+            else
+            {
+                this.Height -= 100;
+                this.additionalCharDataGroupBox.Enabled = false;
             }
         }
     }

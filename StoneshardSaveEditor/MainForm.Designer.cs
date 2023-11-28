@@ -525,6 +525,7 @@
             this.additionalCharDataGroupBox.Controls.Add(this.MpLabel);
             this.additionalCharDataGroupBox.Controls.Add(this.HpLabel);
             this.additionalCharDataGroupBox.Controls.Add(this.XpGainLabel);
+            this.additionalCharDataGroupBox.Enabled = false;
             this.additionalCharDataGroupBox.Location = new System.Drawing.Point(15, 369);
             this.additionalCharDataGroupBox.Name = "additionalCharDataGroupBox";
             this.additionalCharDataGroupBox.Size = new System.Drawing.Size(610, 92);
@@ -545,7 +546,6 @@
             0,
             0});
             this.PainNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.PainNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // ImmunityNumeric
             // 
@@ -560,7 +560,6 @@
             0,
             0});
             this.ImmunityNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.ImmunityNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // HungerNumeric
             // 
@@ -575,7 +574,6 @@
             0,
             0});
             this.HungerNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.HungerNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // FatigueNumeric
             // 
@@ -590,7 +588,6 @@
             0,
             0});
             this.FatigueNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.FatigueNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // ThirstNumeric
             // 
@@ -605,7 +602,6 @@
             0,
             0});
             this.ThirstNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.ThirstNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // IntoxicationNumeric
             // 
@@ -620,7 +616,6 @@
             0,
             0});
             this.IntoxicationNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.IntoxicationNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // MoraleNumeric
             // 
@@ -635,7 +630,6 @@
             0,
             0});
             this.MoraleNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.MoraleNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // SanityNumeric
             // 
@@ -650,12 +644,16 @@
             0,
             0});
             this.SanityNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.SanityNumeric.Maximum = new decimal(new int[] {100, 0, 0, 0});
             // 
             // MpNumeric
             // 
             this.MpNumeric.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Mp", true));
             this.MpNumeric.Location = new System.Drawing.Point(77, 58);
+            this.MpNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.MpNumeric.Name = "MpNumeric";
             this.MpNumeric.Size = new System.Drawing.Size(76, 20);
             this.MpNumeric.TabIndex = 13;
@@ -665,12 +663,16 @@
             0,
             0});
             this.MpNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.MpNumeric.Maximum = new decimal(new int[] {1000, 0, 0, 0});
             // 
             // HpNumeric
             // 
             this.HpNumeric.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "Hp", true));
             this.HpNumeric.Location = new System.Drawing.Point(77, 36);
+            this.HpNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.HpNumeric.Name = "HpNumeric";
             this.HpNumeric.Size = new System.Drawing.Size(76, 20);
             this.HpNumeric.TabIndex = 12;
@@ -680,22 +682,25 @@
             0,
             0});
             this.HpNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.HpNumeric.Maximum = new decimal(new int[] {1000, 0, 0, 0});
             // 
             // XpGainNumeric
             // 
             this.XpGainNumeric.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.characterDataBindingSource, "XPGain", true));
             this.XpGainNumeric.Location = new System.Drawing.Point(77, 14);
+            this.XpGainNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.XpGainNumeric.Name = "XpGainNumeric";
             this.XpGainNumeric.Size = new System.Drawing.Size(76, 20);
             this.XpGainNumeric.TabIndex = 11;
-            this.XpGainNumeric.Value = new decimal(new int[] { 
+            this.XpGainNumeric.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.XpGainNumeric.ValueChanged += new System.EventHandler(this.EnableSaveButton);
-            this.XpGainNumeric.Maximum = new decimal(new int[] {1000, 0, 0, 0});
             // 
             // PainLabel
             // 
