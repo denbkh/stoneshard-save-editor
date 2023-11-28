@@ -85,11 +85,11 @@ namespace StoneshardSaveEditor
             charDataMap["XP"]           = (float)Character.XP;
             charDataMap["Recieved_XP"]  = (float)Character.XPGain;
             charDataMap["Sanity"]       = (float)Character.Sanity;
-            charDataMap["Morale"]       = (float)Character.Sanity;
-            charDataMap["Intoxication"] = (float)Character.Sanity;
-            charDataMap["Thirsty"]      = (float)Character.Sanity;
-            charDataMap["Hunger"]       = (float)Character.Sanity;
-            charDataMap["Immunity"]     = (float)Character.Sanity;
+            charDataMap["Morale"]       = (float)Character.Morale;
+            charDataMap["Intoxication"] = (float)Character.Intoxication;
+            charDataMap["Thirsty"]      = (float)Character.Thirst;
+            charDataMap["Hunger"]       = (float)Character.Hunger;
+            charDataMap["Immunity"]     = (float)Character.Immunity;
             charDataMap["Fatigue"]      = (float)Character.Fatigue;
             charDataMap["Pain"]         = (float)Character.Pain;
 
